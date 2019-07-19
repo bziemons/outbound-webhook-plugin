@@ -18,16 +18,14 @@ object WebHookExecutor {
                webhookSecret: String,
                failOnError: Boolean,
                build: AbstractBuild<*, *>): Boolean {
-        build.asBuildData()
-
         val request = Request.Builder()
             .url(webhookUrl)
             .header("X-Jenkins-Token", webhookSecret)
             .header("X-Jenkins-Event", "Post Build Hook")
             .post(RequestBody.create(JSON_MEDIA_TYPE, GSON.toJson(build.asBuildData())))
             .build()
-        listener.logger.println("Triggering webhook ${request.url()}")
 
+        listener.logger.println("Triggering webhook ${request.url()}")
         return HTTP_CLIENT.newCall(request).execute().use { response ->
             listener.logger.println("Webhook replied ${response.code()} - ${response.message()}")
             return@use !failOnError || response.isSuccessful
