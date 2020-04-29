@@ -19,7 +19,7 @@ repositories {
 }
 
 group = "org.jenkins-ci.plugins"
-version = "0.3.1-SNAPSHOT"
+version = "0.3.2-SNAPSHOT"
 description = "Outbound WebHook for Jenkins build events"
 
 dependencies {

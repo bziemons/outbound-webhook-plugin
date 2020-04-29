@@ -20,6 +20,18 @@ constructor(
     private val webhookSecret: String,
     private val failOnError: Boolean) : Notifier() {
 
+    public fun getWebhookUrl(): String {
+        return webhookUrl
+    }
+
+    public fun getWebhookSecret(): String {
+        return webhookSecret
+    }
+
+    public fun getFailOnError(): Boolean {
+        return failOnError
+    }
+
     override fun getRequiredMonitorService(): BuildStepMonitor {
         return BuildStepMonitor.NONE
     }
