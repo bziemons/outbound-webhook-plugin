@@ -5,10 +5,10 @@ import org.jetbrains.kotlin.gradle.internal.KaptTask
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version ("1.3.41")
-    kotlin("kapt") version ("1.3.41")
+    kotlin("jvm") version ("1.3.72")
+    kotlin("kapt") version ("1.3.72")
 
-    id("org.jenkins-ci.jpi") version "0.33.0"
+    id("org.jenkins-ci.jpi") version "0.39.0"
 }
 
 repositories {
@@ -19,14 +19,15 @@ repositories {
 }
 
 group = "org.jenkins-ci.plugins"
-version = "0.3.0-SNAPSHOT"
+version = "0.3.1-SNAPSHOT"
 description = "Outbound WebHook for Jenkins build events"
 
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
-    implementation("com.squareup.okhttp3:okhttp:3.8.1")
-    implementation("com.google.code.gson:gson:2.8.5")
-    kapt("net.java.sezpoz:sezpoz:1.12")
+    implementation("com.squareup.okhttp3:okhttp:4.5.0")
+    implementation("com.google.code.gson:gson:2.8.6")
+    implementation("com.coravy.hudson.plugins.github:github:1.29.5")
+    kapt("net.java.sezpoz:sezpoz:1.13")
 }
 
 java {
@@ -35,6 +36,7 @@ java {
 
 kapt {
     correctErrorTypes = true
+    includeCompileClasspath = false
 }
 
 
@@ -56,7 +58,7 @@ jenkinsPlugin {
             setProperty("id", "theZorro266")
             setProperty("name", "Benedikt Ziemons")
             setProperty("email", "ben@rs485.network")
-            setProperty("url", "https://github.com/theZorro266")
+            setProperty("url", "https://github.com/bziemons")
             setProperty("organization", "RS485")
             setProperty("organizationUrl", "https://github.com/RS485")
             setProperty("timezone", "Europe/Berlin")

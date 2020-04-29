@@ -4,6 +4,7 @@ data class BuildData(
     val number: Int,
     val displayName: String,
     val fullDisplayName: String,
+    val githubProjectUrl: String?,
     val changes: List<ChangeData>,
     val result: ResultData?,
     val project: ProjectData
