@@ -20,15 +20,15 @@ constructor(
     private val webhookSecret: String,
     private val failOnError: Boolean) : Notifier() {
 
-    public fun getWebhookUrl(): String {
+    fun getWebhookUrl(): String {
         return webhookUrl
     }
 
-    public fun getWebhookSecret(): String {
+    fun getWebhookSecret(): String {
         return webhookSecret
     }
 
-    public fun getFailOnError(): Boolean {
+    fun getFailOnError(): Boolean {
         return failOnError
     }
 
