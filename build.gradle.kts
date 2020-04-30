@@ -26,7 +26,10 @@ dependencies {
     implementation(kotlin("stdlib-jdk8"))
     implementation("com.squareup.okhttp3:okhttp:4.5.0")
     implementation("com.google.code.gson:gson:2.8.6")
-    implementation("com.coravy.hudson.plugins.github:github:1.29.5")
+    implementation("com.coravy.hudson.plugins.github:github:1.29.5") {
+        exclude(group = "com.squareup.okhttp")
+        exclude(group = "com.squareup.okhttp3")
+    }
     kapt("net.java.sezpoz:sezpoz:1.13")
 }
 
